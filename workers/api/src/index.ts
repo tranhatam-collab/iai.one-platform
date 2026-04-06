@@ -17,7 +17,9 @@ import { handleCopyright }   from './routes/copyright'
 import { handlePayment }     from './routes/payment'
 import { handleMedia }       from './routes/media'
 import { handleIpfs }        from './routes/ipfs'
+import { handleSupport }     from './routes/support'
 import { handleSocialAuth }  from './routes/auth-social'
+import { handleMigration }   from './routes/migration'
 import type { Bindings } from './types'
 
 export default {
@@ -35,22 +37,28 @@ export default {
     if (path === '/' || path === '/health') {
       return json({
         name:    'IAI API — Intelligence · Artistry · International',
-        version: '1.0.0',
+        version: '3.0.0',
         status:  'ok',
         env:     env.IAI_ENV ?? 'unknown',
         ts:      new Date().toISOString(),
         routes: [
           'POST /v1/users/register',
           'POST /v1/users/login',
+          'POST /v1/support/contact',
           'GET  /v1/users/me',
+          'GET  /v1/users',
           'GET  /v1/posts',
           'POST /v1/posts',
           'POST /v1/verify/post',
           'POST /v1/verify/claim',
           'GET  /v1/lessons',
+          'GET  /v1/courses',
           'POST /v1/lessons/generate',
           'POST /v1/media/upload',
           'POST /v1/ipfs/pin',
+          'GET  /v1/migration/health',
+          'POST /v1/migration/legacy-users',
+          'POST /v1/migration/legacy-content',
         ],
       }, 200, origin, env.ALLOWED_ORIGINS)
     }
@@ -70,6 +78,8 @@ export default {
       if (path.startsWith('/v1/payment'))     return handlePayment(request, env, path)
       if (path.startsWith('/v1/media'))       return handleMedia(request, env, path)
       if (path.startsWith('/v1/ipfs'))        return handleIpfs(request, env, path)
+      if (path.startsWith('/v1/support'))     return handleSupport(request, env, path)
+      if (path.startsWith('/v1/migration'))   return handleMigration(request, env, path)
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Internal server error'
       console.error('[IAI API]', method, path, msg)

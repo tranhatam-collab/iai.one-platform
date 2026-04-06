@@ -164,3 +164,48 @@ CREATE INDEX IF NOT EXISTS idx_purchases_user    ON purchases(user_id);
 CREATE INDEX IF NOT EXISTS idx_purchases_status  ON purchases(status);
 CREATE INDEX IF NOT EXISTS idx_copyright_hash    ON copyright_records(content_hash);
 CREATE INDEX IF NOT EXISTS idx_copyright_creator ON copyright_records(creator_id);
+
+-- ── Legacy Community Convergence (Wave 1) ───────────────────────
+CREATE TABLE IF NOT EXISTS legacy_user_links (
+  id                  TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),
+  user_id             TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  source_system       TEXT NOT NULL,                    -- phuongdong_us|phuongdonginsider|legacy_iai
+  source_user_id      TEXT,
+  source_handle       TEXT,
+  source_email        TEXT,
+  source_url          TEXT,
+  import_status       TEXT DEFAULT 'linked',            -- linked|pending_review|blocked
+  linked_at           TEXT DEFAULT (datetime('now')),
+  updated_at          TEXT DEFAULT (datetime('now')),
+  UNIQUE(source_system, source_user_id),
+  UNIQUE(source_system, source_handle)
+);
+
+CREATE TABLE IF NOT EXISTS legacy_content_imports (
+  id                  TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),
+  source_system       TEXT NOT NULL,
+  source_content_id   TEXT NOT NULL,
+  source_url          TEXT,
+  source_author_ref   TEXT,
+  content_type        TEXT NOT NULL,                    -- post|lesson|document|asset
+  title               TEXT,
+  content_hash        TEXT,
+  proof_url           TEXT,
+  wallet_address      TEXT,
+  collection          TEXT,
+  import_status       TEXT DEFAULT 'pending',           -- pending|imported|rejected|needs_review
+  moderation_status   TEXT DEFAULT 'pending',           -- pending|approved|flagged
+  imported_post_id    TEXT REFERENCES posts(id) ON DELETE SET NULL,
+  imported_lesson_id  TEXT REFERENCES lessons(id) ON DELETE SET NULL,
+  imported_doc_id     TEXT REFERENCES documents(id) ON DELETE SET NULL,
+  imported_by         TEXT REFERENCES users(id) ON DELETE SET NULL,
+  imported_at         TEXT,
+  created_at          TEXT DEFAULT (datetime('now')),
+  updated_at          TEXT DEFAULT (datetime('now')),
+  UNIQUE(source_system, source_content_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_legacy_user_links_user ON legacy_user_links(user_id);
+CREATE INDEX IF NOT EXISTS idx_legacy_user_links_source ON legacy_user_links(source_system, source_user_id);
+CREATE INDEX IF NOT EXISTS idx_legacy_content_status ON legacy_content_imports(import_status, moderation_status);
+CREATE INDEX IF NOT EXISTS idx_legacy_content_source ON legacy_content_imports(source_system, source_content_id);
