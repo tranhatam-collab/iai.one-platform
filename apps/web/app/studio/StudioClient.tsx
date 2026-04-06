@@ -7,7 +7,20 @@
 import Link from 'next/link'
 import { useAuth } from '@/store/auth'
 
-const STUDIO_TOOLS = [
+type StudioTool = {
+  id: string
+  icon: string
+  name: string
+  label: string
+  desc: string
+  href: string
+  color: string
+  badge: string
+  badgeColor: string
+  disabled?: boolean
+}
+
+const STUDIO_TOOLS: StudioTool[] = [
   {
     id:    'lesson-gen',
     icon:  '✦',
@@ -42,40 +55,37 @@ const STUDIO_TOOLS = [
     badgeColor: 'badge-cyan',
   },
   {
-    id:    'ipfs',
-    icon:  '⬡',
-    name:  'IAI Chain',
-    label: 'IPFS & Blockchain',
-    desc:  'Pin nội dung đã kiểm chứng lên IPFS. Anchor lên Polygon (Phase 3).',
-    href:  '#',
-    color: 'from-purple-500/20 to-purple-500/5',
-    badge: 'Phase 3 · Coming',
-    badgeColor: 'badge-opinion',
-    disabled: true,
-  },
-  {
     id:    'nft',
     icon:  '◇',
-    name:  'Knowledge NFT',
-    label: 'Mint NFT Kiến Thức',
-    desc:  'Bài học chất lượng cao → Knowledge NFT. Tác giả giữ quyền sở hữu vĩnh viễn.',
-    href:  '#',
+    name:  'NFT Trust Layer',
+    label: 'Tài sản kiểm chứng',
+    desc:  'nft.iai.one là lớp tài sản kiểm chứng cho bài học, nội dung, IPFS proof và hồ sơ tri thức.',
+    href:  'https://nft.iai.one',
     color: 'from-amber-500/20 to-amber-500/5',
-    badge: 'Phase 3 · Coming',
-    badgeColor: 'badge-disputed',
-    disabled: true,
+    badge: 'Trust Layer · Live',
+    badgeColor: 'badge-gold',
   },
   {
     id:    'n8n',
     icon:  '⟡',
     name:  'IAI Flow',
     label: 'Automation (n8n)',
-    desc:  'Tự động hóa workflow: auto post, fact-check, notify, và hơn thế nữa.',
-    href:  '#',
+    desc:  'Điều phối workflow: auto post, moderation, fact-check, onboarding và community ops.',
+    href:  'https://flow.iai.one',
     color: 'from-white/10 to-white/5',
-    badge: 'Phase 2 · Planned',
-    badgeColor: 'badge-unverified',
-    disabled: true,
+    badge: 'Phase 2 · Live',
+    badgeColor: 'badge-verified',
+  },
+  {
+    id:    'ipfs',
+    icon:  '⬡',
+    name:  'IPFS + Polygon',
+    label: 'Anchor tài sản',
+    desc:  'Chuẩn bị cho IPFS, Polygon, Knowledge NFT và DAO; phần kiểm chứng đang được giữ tại nft.iai.one.',
+    href:  'https://nft.iai.one',
+    color: 'from-purple-500/20 to-purple-500/5',
+    badge: 'Phase 3 · Prepared',
+    badgeColor: 'badge-opinion',
   },
 ]
 
@@ -86,6 +96,9 @@ export function StudioClient() {
     <div className="max-w-5xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="mb-8">
+        <div className="mb-4 rounded-xl border border-obsidian-border bg-obsidian-mid/70 px-4 py-3 text-xs text-white/45 font-mono">
+          studio on app.iai.one {`->`} creator and ops control surface; route deep automation to flow.iai.one.
+        </div>
         <div className="flex items-center gap-2 mb-3">
           <span className="badge badge-gold font-mono text-[10px]">⟡ IAI STUDIO</span>
         </div>
@@ -93,8 +106,8 @@ export function StudioClient() {
           Xưởng Sáng Tạo AI
         </h1>
         <p className="text-sm text-white/45 max-w-xl leading-relaxed">
-          Tất cả công cụ AI của IAI trong một chỗ — tạo bài học, kiểm chứng nội dung,
-          quản lý tác phẩm và kết nối với blockchain.
+          Tất cả công cụ AI của IAI trong một chỗ: social, fact-check, marketplace,
+          automation và trust layer cho giáo dục chuyên sâu.
         </p>
       </div>
 
@@ -180,8 +193,8 @@ export function StudioClient() {
         <div className="grid grid-cols-3 gap-4">
           {[
             { phase: 'Phase 1', status: 'active',  items: ['Fact-Check AI', 'Lesson Gen', 'Social Feed', 'Auth'] },
-            { phase: 'Phase 2', status: 'planned', items: ['Social+', 'Collaboration', 'Marketplace', 'n8n Flow'] },
-            { phase: 'Phase 3', status: 'future',  items: ['IPFS', 'Polygon', 'Knowledge NFT', 'DAO'] },
+            { phase: 'Phase 2 · Q4 2025', status: 'planned', items: ['Social+', 'Collaboration', 'Marketplace', 'n8n Flow'] },
+            { phase: 'Phase 3 · Q1 2026', status: 'future',  items: ['IPFS', 'Polygon', 'Knowledge NFT', 'DAO'] },
           ].map(p => (
             <div key={p.phase}>
               <div className={`text-xs font-mono font-bold mb-2 ${

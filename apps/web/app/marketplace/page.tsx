@@ -5,19 +5,14 @@
 
 import type { Metadata } from 'next'
 import { MarketplaceClient } from './MarketplaceClient'
+import { pageMetadata } from '@/lib/seo'
 
-export const runtime = 'edge'
-
-export const metadata: Metadata = {
-  title: 'Kho Tri Thức IAI — Marketplace',
-  description:
-    'Khóa học và tài liệu chất lượng cao, được AI kiểm chứng. Mua, học và chia sẻ tri thức trên nền tảng IAI.',
-  openGraph: {
-    title: 'Kho Tri Thức IAI',
-    description: 'Khóa học và tài liệu được kiểm chứng bởi AI. Học ngay trên IAI.',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata({
+  title: 'IAI App Marketplace — Kho tri thức kiểm chứng',
+  description: 'Marketplace của app.iai.one cho khóa học và tài liệu đã qua kiểm chứng, thuộc hệ sinh thái tri thức IAI.',
+  path: '/marketplace',
+  keywords: ['app.iai.one marketplace', 'marketplace', 'khóa học premium', 'tài liệu giáo dục'],
+})
 
 export default function MarketplacePage() {
   return <MarketplaceClient />

@@ -249,6 +249,9 @@ export function VerifyClient() {
 
       {/* Header */}
       <div className="mb-8">
+        <div className="mb-4 rounded-xl border border-obsidian-border bg-obsidian-mid/70 px-4 py-3 text-xs text-white/45 font-mono">
+          verify on app.iai.one {`->`} public truth check before reposting across community surfaces.
+        </div>
         <div className="flex items-center gap-2 mb-3">
           <span className="badge badge-gold font-mono text-[10px]">◎ AI TRUTH ENGINE</span>
         </div>

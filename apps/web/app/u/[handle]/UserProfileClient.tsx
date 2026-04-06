@@ -62,6 +62,9 @@ export function UserProfileClient({ handle }: Props) {
 
       {/* User Info */}
       <div className="px-2">
+        <div className="mb-4 rounded-xl border border-obsidian-border bg-obsidian-mid/60 px-4 py-3 text-xs text-white/45 font-mono">
+          profile surface on app.iai.one {`->`} identity, trust, and contribution trail.
+        </div>
         <div className="flex items-start justify-between gap-4 mb-4">
           <div>
             <h1 className="font-serif text-2xl text-white">{user.name}</h1>

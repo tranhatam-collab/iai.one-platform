@@ -104,6 +104,9 @@ export function MarketplaceClient() {
 
         <div className="relative max-w-7xl mx-auto px-4 py-14 sm:py-20">
           <div className="max-w-2xl">
+            <div className="mb-4 rounded-xl border border-obsidian-border bg-obsidian-mid/70 px-4 py-3 text-xs text-white/45 font-mono">
+              marketplace on app.iai.one {`->`} distribute verified learning assets with transparent provenance.
+            </div>
             <div className="flex items-center gap-2 mb-4">
               <span className="badge badge-gold font-mono text-[10px]">✦ MARKETPLACE</span>
               <span className="badge badge-cyan text-[10px]">AI KIỂM CHỨNG</span>

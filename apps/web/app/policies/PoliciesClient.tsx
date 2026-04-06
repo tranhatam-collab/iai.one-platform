@@ -507,6 +507,9 @@ export function PoliciesClient() {
       {/* ── Hero ─── */}
       <section className="border-b border-obsidian-border bg-obsidian-mid">
         <div className="max-w-7xl mx-auto px-4 py-10">
+          <div className="mb-4 rounded-xl border border-obsidian-border bg-obsidian/60 px-4 py-3 text-xs text-white/45 font-mono">
+            policy surface on app.iai.one {`->`} governance for community actions, trust, and content rights.
+          </div>
           <div className="flex items-center gap-2 mb-3">
             <span className="badge badge-gold font-mono text-[10px]">✦ IAI LEGAL</span>
           </div>
