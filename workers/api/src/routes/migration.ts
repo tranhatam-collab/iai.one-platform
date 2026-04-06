@@ -8,6 +8,11 @@ function isAdmin(request: Request, env: Bindings): boolean {
   return Boolean(env.IAI_ADMIN_SECRET && headerSecret === env.IAI_ADMIN_SECRET)
 }
 
+function debugEnabled(env: Bindings): boolean {
+  const mode = (env.IAI_ENV || '').toLowerCase()
+  return mode !== 'production' || Boolean(env.APP_URL?.includes('preview'))
+}
+
 export async function handleMigration(request: Request, env: Bindings, path: string): Promise<Response> {
   const origin = request.headers.get('Origin')
   const J = (d: unknown, s = 200) => json(d, s, origin, env.ALLOWED_ORIGINS)
@@ -23,11 +28,30 @@ export async function handleMigration(request: Request, env: Bindings, path: str
   if (path === '/v1/migration/health' && request.method === 'GET') {
     const links = await env.DB.prepare('SELECT COUNT(*) as count FROM legacy_user_links').first<{ count: number }>()
     const imports = await env.DB.prepare('SELECT COUNT(*) as count FROM legacy_content_imports').first<{ count: number }>()
+    const admin = isAdmin(request, env)
+
+    if (!admin) {
+      return J({
+        ok: false,
+        error: 'Forbidden',
+        migration: {
+          ready: true,
+          adminConfigured: Boolean(env.IAI_ADMIN_SECRET),
+          authAccepted: ['x-iai-admin-secret', 'Authorization: Bearer <IAI_ADMIN_SECRET>'],
+          debug: debugEnabled(env),
+        },
+      }, 403)
+    }
+
     return J({
       ok: true,
       legacy_user_links: links?.count ?? 0,
       legacy_content_imports: imports?.count ?? 0,
       mode: 'wave1',
+      auth: {
+        method: request.headers.get('x-iai-admin-secret') ? 'x-iai-admin-secret' : 'authorization-bearer',
+        debug: debugEnabled(env),
+      },
     })
   }
 
