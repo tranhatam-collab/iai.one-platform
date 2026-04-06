@@ -20,9 +20,17 @@ export function absoluteUrl(path: string): string {
   return `${base}${normalised}`
 }
 
-/** Serialize a JSON-LD object to a string safe for dangerouslySetInnerHTML. */
+/**
+ * Serialize a JSON-LD object to a string safe for dangerouslySetInnerHTML.
+ * Escapes HTML-special characters to prevent XSS via script-tag injection.
+ */
 export function jsonLd(data: Record<string, unknown>): string {
   return JSON.stringify(data)
+    .replace(/&/g, '\\u0026')
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029')
 }
 
 /** Truncate text to at most `maxLength` characters, appending "…" if cut. */
