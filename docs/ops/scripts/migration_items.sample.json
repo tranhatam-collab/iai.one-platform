@@ -1,0 +1,30 @@
+[
+  {
+    "source_system": "phuongdonginsider",
+    "source_content_id": "PDI-STORY-2026-0002",
+    "source_url": "https://phuongdonginsider.com/vi/stories/sample-story-2",
+    "source_author_ref": "pdi_editorial",
+    "content_type": "post",
+    "title": "PDI Story 2",
+    "content_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "proof_url": "https://phuongdonginsider.com/proofs/pdi-story-2.json",
+    "wallet_address": "0x8F2a5c1f7E0A9bC1D2E3F4a5B6c7D8e9F0A1B2C3",
+    "collection": "iai-editorial-proof",
+    "import_status": "pending",
+    "moderation_status": "pending"
+  },
+  {
+    "source_system": "phuongdong_us",
+    "source_content_id": "PDUS-PRODUCT-2026-Q2-0007",
+    "source_url": "https://phuongdong.us/membership?product=market-intelligence-pack-q2-2026",
+    "source_author_ref": "commerce_unit",
+    "content_type": "asset",
+    "title": "Market Intelligence Pack Q2 2026",
+    "content_hash": "sha256:9a8e53f5fd4497fd2fd196177a61d8b4f8ddf1d9b3f4a707a08dbf2fd48f3e7a",
+    "proof_url": "https://phuongdong.us/proofs/products/market-intelligence-pack-q2-2026.json",
+    "wallet_address": "0x8F2a5c1f7E0A9bC1D2E3F4a5B6c7D8e9F0A1B2C3",
+    "collection": "iai-digital-products",
+    "import_status": "pending",
+    "moderation_status": "pending"
+  }
+]

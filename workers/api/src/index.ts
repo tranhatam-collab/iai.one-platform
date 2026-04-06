@@ -58,10 +58,12 @@ export default {
           'POST /v1/ipfs/pin',
           'GET  /v1/migration/health',
           'POST /v1/migration/legacy-users',
+          'POST /v1/migration/legacy-users/upsert',
           'POST /v1/migration/legacy-content',
           'GET  /v1/migration/legacy-content',
           'POST /v1/migration/legacy-content/upsert',
           'POST /v1/migration/legacy-content/mark-imported',
+          'POST /v1/migration/legacy-content/mark-imported-by-source',
         ],
       }, 200, origin, env.ALLOWED_ORIGINS)
     }
