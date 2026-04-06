@@ -59,6 +59,9 @@ export default {
           'GET  /v1/migration/health',
           'POST /v1/migration/legacy-users',
           'POST /v1/migration/legacy-content',
+          'GET  /v1/migration/legacy-content',
+          'POST /v1/migration/legacy-content/upsert',
+          'POST /v1/migration/legacy-content/mark-imported',
         ],
       }, 200, origin, env.ALLOWED_ORIGINS)
     }
