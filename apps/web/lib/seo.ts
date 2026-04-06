@@ -75,7 +75,7 @@ export function pageMetadata({
     ...(filteredKeywords && filteredKeywords.length > 0 && { keywords: filteredKeywords }),
     alternates: { canonical: url },
     openGraph: {
-      type:        type === 'article' ? 'article' : type === 'profile' ? 'profile' : 'website',
+      type,
       url,
       title,
       description,
