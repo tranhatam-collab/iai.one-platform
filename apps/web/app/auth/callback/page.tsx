@@ -5,14 +5,12 @@
 
 'use client'
 
-export const runtime = 'edge'
-
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useAuth } from '@/store/auth'
 import type { User } from '@/types'
 
-export default function AuthCallbackPage() {
+function AuthCallbackInner() {
   const router       = useRouter()
   const params       = useSearchParams()
   const { setAuth }  = useAuth()
@@ -77,5 +75,22 @@ export default function AuthCallbackPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function AuthCallbackPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-obsidian flex items-center justify-center">
+        <div className="card p-8 max-w-sm w-full text-center space-y-4">
+          <p className="text-white/60 text-sm">Đang xác thực…</p>
+          <div className="flex justify-center">
+            <span className="spinner w-6 h-6 border-gold/40 border-t-gold" />
+          </div>
+        </div>
+      </div>
+    }>
+      <AuthCallbackInner />
+    </Suspense>
   )
 }

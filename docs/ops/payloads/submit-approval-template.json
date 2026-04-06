@@ -1,0 +1,16 @@
+{
+  "action": "submit",
+  "issuance": {
+    "lang": "vi",
+    "collection": "REPLACE_COLLECTION_SLUG",
+    "title": "REPLACE_TITLE",
+    "recipientName": "REPLACE_OWNER_NAME",
+    "walletAddress": "0xREPLACE_WALLET",
+    "contentHash": "sha256:REPLACE_HASH",
+    "proofUrl": "https://REPLACE_PROOF_URL",
+    "externalUrl": "https://REPLACE_PUBLIC_URL",
+    "externalId": "REPLACE_INTERNAL_ID"
+  },
+  "requestedBy": "content.ops@iai.one",
+  "note": "Submit for publish certification"
+}

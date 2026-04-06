@@ -57,17 +57,17 @@ function HeroBanner() {
 
       <div className="relative">
         <div className="flex items-center gap-2 mb-3">
-          <span className="badge badge-gold font-mono text-[10px]">✦ PHASE 1 — EDUCATION + TRUTH</span>
+          <span className="badge badge-gold font-mono text-[10px]">✦ V3.0 — APP + NFT TRUST LAYER</span>
         </div>
         <h1 className="font-serif text-2xl sm:text-3xl text-white mb-3 leading-tight">
           Giáo dục bằng{' '}
           <span className="text-gradient-gold">sự thật</span>.
-          <br />Lưu trữ bởi{' '}
-          <span className="text-gradient-iai">phi tập trung</span>.
+          <br />Cộng tác bằng{' '}
+          <span className="text-gradient-iai">bằng chứng</span>.
         </h1>
         <p className="text-sm text-white/55 max-w-lg mb-5 leading-relaxed">
-          Mỗi bài viết, mỗi cuộc thảo luận đều được AI kiểm chứng trước khi đến tay bạn.
-          Không có chỗ cho tin giả trên IAI.
+          app.iai.one là operating surface cho social, collaboration, marketplace và automation.
+          nft.iai.one giữ lớp tài sản kiểm chứng, IPFS, Polygon và Knowledge NFT cho mọi nội dung đã verify.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link href="/register" className="btn btn-gold">
@@ -76,6 +76,14 @@ function HeroBanner() {
           <Link href="/lessons" className="btn btn-outline">
             ✦ Xem bài học
           </Link>
+          <a href="https://home.iai.one" target="_blank" rel="noreferrer" className="btn btn-ghost">
+            Ecosystem Portal ↗
+          </a>
+        </div>
+
+        <div className="mt-4 rounded-xl border border-obsidian-border bg-obsidian/70 px-4 py-3 text-xs text-white/45 leading-relaxed">
+          Bạn đến từ cộng đồng cũ? Hệ mới hội tụ tại <span className="text-gold">app.iai.one</span>.
+          Xem toàn bộ sơ đồ domain tại <a href="https://home.iai.one" target="_blank" rel="noreferrer" className="text-cyan-iai hover:text-gold">home.iai.one</a>.
         </div>
 
         {/* Stats */}
@@ -146,9 +154,27 @@ function SidebarStats() {
         </h3>
         <div className="space-y-3">
           {[
-            { phase: 'Phase 1', label: 'Education + Truth', status: 'active',  icon: '✓' },
-            { phase: 'Phase 2', label: 'Social + Community', status: 'planned', icon: '◉' },
-            { phase: 'Phase 3', label: 'Blockchain + Web3',  status: 'future',  icon: '⬡' },
+            {
+              phase: 'Phase 1',
+              label: 'Education + Truth',
+              detail: 'LIVE · Feed · Verify · Lessons · Auth',
+              status: 'active',
+              icon: '✓',
+            },
+            {
+              phase: 'Phase 2 · Q4 2025',
+              label: 'Social + Community',
+              detail: 'Social+ · Collaboration · Marketplace · n8n Flow',
+              status: 'planned',
+              icon: '◉',
+            },
+            {
+              phase: 'Phase 3 · Q1 2026',
+              label: 'Verified Asset Layer',
+              detail: 'IPFS · Polygon · Knowledge NFT · DAO',
+              status: 'future',
+              icon: '⬡',
+            },
           ].map(p => (
             <div key={p.phase} className="flex items-center gap-3">
               <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs
@@ -161,6 +187,9 @@ function SidebarStats() {
                 <div className="text-xs font-mono text-white/50">{p.phase}</div>
                 <div className={`text-xs ${p.status === 'active' ? 'text-white/80' : 'text-white/35'}`}>
                   {p.label}
+                </div>
+                <div className="text-[11px] text-white/25 mt-0.5">
+                  {p.detail}
                 </div>
               </div>
               {p.status === 'active' && (
@@ -217,6 +246,10 @@ export function FeedPage() {
 
         {/* ── Main Feed ─── */}
         <div className="min-w-0 space-y-4">
+
+          <div className="rounded-xl border border-obsidian-border bg-obsidian-mid/70 px-4 py-3 text-xs text-white/45 font-mono">
+            app.iai.one = community and product surface · iai.one = charter · home.iai.one = portal
+          </div>
 
           {/* Create Post */}
           <CreatePost onCreated={() => loadPosts(true)} />

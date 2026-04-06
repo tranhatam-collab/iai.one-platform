@@ -13,8 +13,15 @@ import { useAuth } from '@/store/auth'
 const NAV_LINKS = [
   { href: '/',         label: 'Feed',      icon: '◈' },
   { href: '/lessons',  label: 'Bài Học',   icon: '✦' },
+  { href: '/marketplace', label: 'Marketplace', icon: '▣' },
   { href: '/verify',   label: 'Kiểm Chứng',icon: '◎' },
   { href: '/studio',   label: 'Studio',    icon: '⟡' },
+]
+
+const ECOSYSTEM_LINKS = [
+  { href: 'https://iai.one', label: 'Charter' },
+  { href: 'https://home.iai.one', label: 'Portal' },
+  { href: 'https://flow.iai.one', label: 'Flow' },
 ]
 
 export function Navbar() {
@@ -61,6 +68,20 @@ export function Navbar() {
 
         {/* ── Right Side ─── */}
         <div className="flex items-center gap-2 shrink-0">
+
+          <div className="hidden xl:flex items-center gap-1 rounded-lg border border-obsidian-border bg-obsidian-mid/70 px-2 py-1">
+            {ECOSYSTEM_LINKS.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded px-2 py-1 text-[11px] font-mono text-white/40 transition hover:text-gold"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
           {/* Verify Quick Button */}
           <Link
@@ -157,6 +178,20 @@ export function Navbar() {
                 <span className="text-gold">{link.icon}</span>
                 {link.label}
               </Link>
+            ))}
+
+            <div className="my-2 border-t border-obsidian-border" />
+            {ECOSYSTEM_LINKS.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm text-white/50 hover:text-white transition-colors"
+              >
+                <span className="text-gold">↗</span>
+                {link.label}
+              </a>
             ))}
           </nav>
         </div>

@@ -5,12 +5,36 @@
 
 import type { Metadata } from 'next'
 import { FeedPage } from './FeedPage'
+import { absoluteUrl, jsonLd, pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'IAI — Giáo dục bằng sự thật',
-  description: 'Feed cộng đồng nơi mọi bài viết được AI kiểm chứng. Học, thảo luận, tranh luận — với sự thật là nền tảng.',
-}
+const HOME_DESCRIPTION =
+  'app.iai.one là bề mặt sống của hệ sinh thái IAI cho community, lessons, verify và collaboration. home.iai.one là portal định tuyến, iai.one là charter gốc.'
+
+export const metadata: Metadata = pageMetadata({
+  title: 'IAI App — Community, lessons, verify, collaboration',
+  description: HOME_DESCRIPTION,
+  path: '/',
+  keywords: ['app.iai.one', 'community feed', 'social learning', 'verification', 'ecosystem portal'],
+})
 
 export default function HomePage() {
-  return <FeedPage />
+  const homeJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'IAI V3.0',
+    url: absoluteUrl('/'),
+    description: HOME_DESCRIPTION,
+    isPartOf: absoluteUrl('/'),
+    about: ['Community', 'Lessons', 'Verification', 'Collaboration'],
+  }
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(homeJsonLd) }}
+      />
+      <FeedPage />
+    </>
+  )
 }
