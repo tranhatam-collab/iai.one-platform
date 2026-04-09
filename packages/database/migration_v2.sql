@@ -209,3 +209,20 @@ CREATE INDEX IF NOT EXISTS idx_legacy_user_links_user ON legacy_user_links(user_
 CREATE INDEX IF NOT EXISTS idx_legacy_user_links_source ON legacy_user_links(source_system, source_user_id);
 CREATE INDEX IF NOT EXISTS idx_legacy_content_status ON legacy_content_imports(import_status, moderation_status);
 CREATE INDEX IF NOT EXISTS idx_legacy_content_source ON legacy_content_imports(source_system, source_content_id);
+
+-- ── Migration Audit Events (PR-06 contract hardening) ─────────
+CREATE TABLE IF NOT EXISTS migration_audit_events (
+  id                  TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),
+  operation           TEXT NOT NULL,                    -- legacy-users-upsert|legacy-content-upsert|...
+  source_system       TEXT,
+  source_ref          TEXT,
+  actor_ref           TEXT,
+  dry_run             INTEGER DEFAULT 0,                -- 0=false, 1=true
+  status              TEXT NOT NULL,                    -- success|rejected|failed
+  detail_json         TEXT,
+  created_at          TEXT DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_migration_audit_operation ON migration_audit_events(operation, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_migration_audit_source ON migration_audit_events(source_system, source_ref, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_migration_audit_status ON migration_audit_events(status, created_at DESC);

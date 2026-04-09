@@ -34,7 +34,13 @@ export default {
     if (preflight) return preflight
 
     // ── Health check ──────────────────────────────────────
-    if (path === '/' || path === '/health') {
+    const isHealthPath =
+      path === '/' ||
+      path === '/health' ||
+      path === '/api' ||
+      path === '/api/health'
+
+    if (isHealthPath) {
       return json({
         name:    'IAI API — Intelligence · Artistry · International',
         version: '3.0.0',
@@ -57,6 +63,8 @@ export default {
           'POST /v1/media/upload',
           'POST /v1/ipfs/pin',
           'GET  /v1/migration/health',
+          'GET  /v1/migration/contracts',
+          'GET  /v1/migration/legacy-users',
           'POST /v1/migration/legacy-users',
           'POST /v1/migration/legacy-users/upsert',
           'POST /v1/migration/legacy-content',
@@ -64,6 +72,7 @@ export default {
           'POST /v1/migration/legacy-content/upsert',
           'POST /v1/migration/legacy-content/mark-imported',
           'POST /v1/migration/legacy-content/mark-imported-by-source',
+          'GET  /v1/migration/audit-events',
         ],
       }, 200, origin, env.ALLOWED_ORIGINS)
     }
