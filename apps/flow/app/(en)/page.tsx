@@ -1,5 +1,5 @@
 import { FlowPage } from '@/components/FlowPage'
 
-export default function FlowRootPage() {
+export default function EnglishFlowPage() {
   return <FlowPage locale="en" />
 }

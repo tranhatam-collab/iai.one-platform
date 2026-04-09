@@ -1,6 +1,5 @@
-import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import './globals.css'
+import '../globals.css'
 import { FlowFooter } from '@/components/FlowFooter'
 import { FlowNav } from '@/components/FlowNav'
 
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function EnglishFlowLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="bg-obsidian text-white antialiased">

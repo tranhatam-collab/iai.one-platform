@@ -101,10 +101,10 @@ Top priority order for the current pass:
 
 1. Keep this file as the active operational truth.
 2. Use `npm run verify:current-pass` for the canonical local release check.
-3. Start `PR-08` flow minimum product pass.
+3. Start `PR-09` `api.flow` decision gate (implement now or formally defer with criteria).
 4. Keep one-command `npm run deploy:preview` healthy after each backend/data change.
 5. Keep preview URLs and smoke-check truth updated in this file after each deploy pass.
-6. Keep `PR-07` wave-1 manifest and sign-off assets as the active migration baseline.
+6. Keep `PR-07` wave-1 manifest/sign-off assets and `PR-08` flow surface baseline in sync.
 
 ## 7. Latest Completed Pass
 
@@ -168,6 +168,11 @@ Completed in the latest pass:
   - users dry-run summary: total `12`, success `12`, failed `0`
   - content dry-run summary: total `12`, success `12`, failed `0`
   - audit snapshot includes dry-run events for `legacy-users-upsert` and `legacy-content-upsert`
+- Completed `PR-08` flow minimum product pass baseline:
+  - expanded flow hero and entry grid to make builder shell and templates entry explicit
+  - added template rail and runtime handoff panel for portal/app/API boundary clarity
+  - aligned flow metadata copy to builder/templates/handoff positioning
+  - verified `npm --workspace apps/flow run build`: PASS
 
 ## 8. Deploy Truth
 
@@ -245,6 +250,6 @@ Important files to preserve as reference:
 
 ## 11. Immediate Next Actions
 
-- Start `PR-08` flow minimum product pass
+- Start `PR-09` `api.flow` decision gate (real scaffold now vs formal defer note)
 - Maintain one-command preview deploy health (`npm run deploy:preview`) after each migration/data change
-- Keep `PR-07` manifest/dry-run/sign-off assets updated when migration scope changes
+- Keep `PR-07` manifest/dry-run/sign-off assets and `PR-08` flow baseline updated when scope changes
