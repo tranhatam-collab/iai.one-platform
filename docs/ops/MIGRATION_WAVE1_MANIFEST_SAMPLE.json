@@ -1,0 +1,396 @@
+{
+  "manifest_version": "2026-04-10.pr07",
+  "wave_id": "legacy-community-wave1",
+  "created_at": "2026-04-10T01:00:00Z",
+  "source_systems": [
+    "phuongdonginsider",
+    "phuongdong_us"
+  ],
+  "users": [
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdonginsider",
+      "source_user_id": "PDI-AUTHOR-0001",
+      "source_handle": "pdi_editor_1",
+      "source_email": "editor1@phuongdonginsider.com",
+      "source_url": "https://phuongdonginsider.com/vi/authors/editor1",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdonginsider",
+      "source_user_id": "PDI-AUTHOR-0002",
+      "source_handle": "pdi_editor_2",
+      "source_email": "editor2@phuongdonginsider.com",
+      "source_url": "https://phuongdonginsider.com/vi/authors/editor2",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdonginsider",
+      "source_user_id": "PDI-AUTHOR-0003",
+      "source_handle": "pdi_editor_3",
+      "source_email": "editor3@phuongdonginsider.com",
+      "source_url": "https://phuongdonginsider.com/vi/authors/editor3",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-PROGRAM-OWNER-0001",
+      "source_handle": "pdus_program_1",
+      "source_email": "program1@phuongdong.us",
+      "source_url": "https://phuongdong.us/programs/1",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-PROGRAM-OWNER-0002",
+      "source_handle": "pdus_program_2",
+      "source_email": "program2@phuongdong.us",
+      "source_url": "https://phuongdong.us/programs/2",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-PROGRAM-OWNER-0003",
+      "source_handle": "pdus_program_3",
+      "source_email": "program3@phuongdong.us",
+      "source_url": "https://phuongdong.us/programs/3",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-PROGRAM-OWNER-0004",
+      "source_handle": "pdus_program_4",
+      "source_email": "program4@phuongdong.us",
+      "source_url": "https://phuongdong.us/programs/4",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-OPP-OWNER-0001",
+      "source_handle": "pdus_opp_1",
+      "source_email": "opp1@phuongdong.us",
+      "source_url": "https://phuongdong.us/opportunities/1",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-OPP-OWNER-0002",
+      "source_handle": "pdus_opp_2",
+      "source_email": "opp2@phuongdong.us",
+      "source_url": "https://phuongdong.us/opportunities/2",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-OPP-OWNER-0003",
+      "source_handle": "pdus_opp_3",
+      "source_email": "opp3@phuongdong.us",
+      "source_url": "https://phuongdong.us/opportunities/3",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-OPP-OWNER-0004",
+      "source_handle": "pdus_opp_4",
+      "source_email": "opp4@phuongdong.us",
+      "source_url": "https://phuongdong.us/opportunities/4",
+      "import_status": "linked"
+    },
+    {
+      "user_id": "usr_ai_civicmind",
+      "source_system": "phuongdong_us",
+      "source_user_id": "PDUS-OPP-OWNER-0005",
+      "source_handle": "pdus_opp_5",
+      "source_email": "opp5@phuongdong.us",
+      "source_url": "https://phuongdong.us/opportunities/5",
+      "import_status": "linked"
+    }
+  ],
+  "content_items": [
+    {
+      "source_system": "phuongdonginsider",
+      "source_content_id": "PDI-STORY-2026-0001",
+      "source_url": "https://phuongdonginsider.com/vi/stories/pdi-story-1",
+      "source_author_ref": "pdi_editor_1",
+      "content_type": "post",
+      "title": "PDI Story 1",
+      "content_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "proof_url": "https://phuongdonginsider.com/proofs/pdi-story-1.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-editorial-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdonginsider",
+      "source_content_id": "PDI-STORY-2026-0002",
+      "source_url": "https://phuongdonginsider.com/vi/stories/pdi-story-2",
+      "source_author_ref": "pdi_editor_2",
+      "content_type": "post",
+      "title": "PDI Story 2",
+      "content_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "proof_url": "https://phuongdonginsider.com/proofs/pdi-story-2.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-editorial-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdonginsider",
+      "source_content_id": "PDI-STORY-2026-0003",
+      "source_url": "https://phuongdonginsider.com/vi/stories/pdi-story-3",
+      "source_author_ref": "pdi_editor_3",
+      "content_type": "post",
+      "title": "PDI Story 3",
+      "content_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+      "proof_url": "https://phuongdonginsider.com/proofs/pdi-story-3.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-editorial-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-PROGRAM-2026-0001",
+      "source_url": "https://phuongdong.us/programs/1",
+      "source_author_ref": "pdus_program_1",
+      "content_type": "document",
+      "title": "PDUS Program 1",
+      "content_hash": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "proof_url": "https://phuongdong.us/proofs/programs/1.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-program-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-PROGRAM-2026-0002",
+      "source_url": "https://phuongdong.us/programs/2",
+      "source_author_ref": "pdus_program_2",
+      "content_type": "document",
+      "title": "PDUS Program 2",
+      "content_hash": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+      "proof_url": "https://phuongdong.us/proofs/programs/2.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-program-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-PROGRAM-2026-0003",
+      "source_url": "https://phuongdong.us/programs/3",
+      "source_author_ref": "pdus_program_3",
+      "content_type": "document",
+      "title": "PDUS Program 3",
+      "content_hash": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+      "proof_url": "https://phuongdong.us/proofs/programs/3.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-program-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-PROGRAM-2026-0004",
+      "source_url": "https://phuongdong.us/programs/4",
+      "source_author_ref": "pdus_program_4",
+      "content_type": "document",
+      "title": "PDUS Program 4",
+      "content_hash": "sha256:7777777777777777777777777777777777777777777777777777777777777777",
+      "proof_url": "https://phuongdong.us/proofs/programs/4.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-program-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-OPP-2026-0001",
+      "source_url": "https://phuongdong.us/opportunities/1",
+      "source_author_ref": "pdus_opp_1",
+      "content_type": "post",
+      "title": "PDUS Opportunity 1",
+      "content_hash": "sha256:8888888888888888888888888888888888888888888888888888888888888888",
+      "proof_url": "https://phuongdong.us/proofs/opportunities/1.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-opportunity-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-OPP-2026-0002",
+      "source_url": "https://phuongdong.us/opportunities/2",
+      "source_author_ref": "pdus_opp_2",
+      "content_type": "post",
+      "title": "PDUS Opportunity 2",
+      "content_hash": "sha256:9999999999999999999999999999999999999999999999999999999999999999",
+      "proof_url": "https://phuongdong.us/proofs/opportunities/2.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-opportunity-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-OPP-2026-0003",
+      "source_url": "https://phuongdong.us/opportunities/3",
+      "source_author_ref": "pdus_opp_3",
+      "content_type": "post",
+      "title": "PDUS Opportunity 3",
+      "content_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "proof_url": "https://phuongdong.us/proofs/opportunities/3.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-opportunity-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-OPP-2026-0004",
+      "source_url": "https://phuongdong.us/opportunities/4",
+      "source_author_ref": "pdus_opp_4",
+      "content_type": "post",
+      "title": "PDUS Opportunity 4",
+      "content_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "proof_url": "https://phuongdong.us/proofs/opportunities/4.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-opportunity-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    },
+    {
+      "source_system": "phuongdong_us",
+      "source_content_id": "PDUS-OPP-2026-0005",
+      "source_url": "https://phuongdong.us/opportunities/5",
+      "source_author_ref": "pdus_opp_5",
+      "content_type": "post",
+      "title": "PDUS Opportunity 5",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "proof_url": "https://phuongdong.us/proofs/opportunities/5.json",
+      "wallet_address": "0x8f2a5c1f7e0a9bc1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "collection": "iai-opportunity-proof",
+      "import_status": "pending",
+      "moderation_status": "pending"
+    }
+  ],
+  "redirect_map": [
+    {
+      "source_url": "https://phuongdonginsider.com/vi/stories/pdi-story-1",
+      "target_url": "https://app.iai.one/post/pdi-story-2026-0001",
+      "status_code": 301,
+      "reason": "wave1-story"
+    },
+    {
+      "source_url": "https://phuongdonginsider.com/vi/stories/pdi-story-2",
+      "target_url": "https://app.iai.one/post/pdi-story-2026-0002",
+      "status_code": 301,
+      "reason": "wave1-story"
+    },
+    {
+      "source_url": "https://phuongdonginsider.com/vi/stories/pdi-story-3",
+      "target_url": "https://app.iai.one/post/pdi-story-2026-0003",
+      "status_code": 301,
+      "reason": "wave1-story"
+    },
+    {
+      "source_url": "https://phuongdong.us/programs/1",
+      "target_url": "https://app.iai.one/policies?legacy=program-1",
+      "status_code": 302,
+      "reason": "wave1-program"
+    },
+    {
+      "source_url": "https://phuongdong.us/programs/2",
+      "target_url": "https://app.iai.one/policies?legacy=program-2",
+      "status_code": 302,
+      "reason": "wave1-program"
+    },
+    {
+      "source_url": "https://phuongdong.us/programs/3",
+      "target_url": "https://app.iai.one/policies?legacy=program-3",
+      "status_code": 302,
+      "reason": "wave1-program"
+    },
+    {
+      "source_url": "https://phuongdong.us/programs/4",
+      "target_url": "https://app.iai.one/policies?legacy=program-4",
+      "status_code": 302,
+      "reason": "wave1-program"
+    },
+    {
+      "source_url": "https://phuongdong.us/opportunities/1",
+      "target_url": "https://app.iai.one/marketplace?legacy=opportunity-1",
+      "status_code": 302,
+      "reason": "wave1-opportunity"
+    },
+    {
+      "source_url": "https://phuongdong.us/opportunities/2",
+      "target_url": "https://app.iai.one/marketplace?legacy=opportunity-2",
+      "status_code": 302,
+      "reason": "wave1-opportunity"
+    },
+    {
+      "source_url": "https://phuongdong.us/opportunities/3",
+      "target_url": "https://app.iai.one/marketplace?legacy=opportunity-3",
+      "status_code": 302,
+      "reason": "wave1-opportunity"
+    },
+    {
+      "source_url": "https://phuongdong.us/opportunities/4",
+      "target_url": "https://app.iai.one/marketplace?legacy=opportunity-4",
+      "status_code": 302,
+      "reason": "wave1-opportunity"
+    },
+    {
+      "source_url": "https://phuongdong.us/opportunities/5",
+      "target_url": "https://app.iai.one/marketplace?legacy=opportunity-5",
+      "status_code": 302,
+      "reason": "wave1-opportunity"
+    }
+  ],
+  "rules": {
+    "identity_collision": {
+      "source_key_priority": [
+        "source_user_id",
+        "source_handle"
+      ],
+      "handle_suffix_strategy": "append-source-system-and-increment",
+      "manual_review_required": true
+    },
+    "trust_markers": {
+      "required_source_fields": [
+        "source_system",
+        "source_content_id",
+        "source_url",
+        "content_hash"
+      ],
+      "proof_required_for_content_types": [
+        "post",
+        "document",
+        "asset"
+      ]
+    },
+    "moderation": {
+      "default_import_status": "pending",
+      "default_moderation_status": "pending",
+      "manual_review_tags": [
+        "external_link_mismatch",
+        "missing_proof_url",
+        "identity_collision",
+        "hash_mismatch"
+      ]
+    }
+  }
+}

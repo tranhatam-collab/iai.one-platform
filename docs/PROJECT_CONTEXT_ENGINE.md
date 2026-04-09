@@ -101,10 +101,10 @@ Top priority order for the current pass:
 
 1. Keep this file as the active operational truth.
 2. Use `npm run verify:current-pass` for the canonical local release check.
-3. Continue `PR-07` legacy migration wave-1 pack.
+3. Start `PR-08` flow minimum product pass.
 4. Keep one-command `npm run deploy:preview` healthy after each backend/data change.
 5. Keep preview URLs and smoke-check truth updated in this file after each deploy pass.
-6. Prepare `PR-08` flow minimum product pass.
+6. Keep `PR-07` wave-1 manifest and sign-off assets as the active migration baseline.
 
 ## 7. Latest Completed Pass
 
@@ -157,6 +157,17 @@ Completed in the latest pass:
   - `npm run deploy:preview`: PASS
   - API preview URL: `https://iai-api-preview.tranhatam.workers.dev`
   - Web preview URL: `https://ed60b80f.iai-web.pages.dev`
+- Completed `PR-07` legacy migration wave-1 pack baseline in one pass:
+  - added canonical manifest schema: `docs/ops/MIGRATION_WAVE1_MANIFEST_SCHEMA.json`
+  - added 12-item wave-1 sample manifest: `docs/ops/MIGRATION_WAVE1_MANIFEST_SAMPLE.json`
+  - upgraded dry-run scripts so `MODE=dry-run` now calls real API with `dry_run: true`
+  - added one-command manifest runner: `docs/ops/scripts/migration_wave1_manifest_runner.sh`
+  - added sign-off gate: `docs/ops/MIGRATION_WAVE1_SIGNOFF_CHECKLIST.md`
+  - produced dry-run proof artifact: `docs/ops/MIGRATION_WAVE1_DRY_RUN_PROOF.json`
+- Verified PR-07 dry-run proof on local API (`wrangler dev`, 2026-04-10):
+  - users dry-run summary: total `12`, success `12`, failed `0`
+  - content dry-run summary: total `12`, success `12`, failed `0`
+  - audit snapshot includes dry-run events for `legacy-users-upsert` and `legacy-content-upsert`
 
 ## 8. Deploy Truth
 
@@ -234,6 +245,6 @@ Important files to preserve as reference:
 
 ## 11. Immediate Next Actions
 
-- Continue `PR-07` legacy migration wave-1 pack
+- Start `PR-08` flow minimum product pass
 - Maintain one-command preview deploy health (`npm run deploy:preview`) after each migration/data change
-- Prepare `PR-08` flow minimum product pass
+- Keep `PR-07` manifest/dry-run/sign-off assets updated when migration scope changes

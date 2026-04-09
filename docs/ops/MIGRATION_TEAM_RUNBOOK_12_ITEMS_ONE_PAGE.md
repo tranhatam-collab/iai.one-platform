@@ -23,10 +23,13 @@ Admin auth accepted:
 
 ## 3. Required Files
 
+- wave-1 manifest schema: `docs/ops/MIGRATION_WAVE1_MANIFEST_SCHEMA.json`
+- wave-1 manifest sample: `docs/ops/MIGRATION_WAVE1_MANIFEST_SAMPLE.json`
 - user-link payload batch: `docs/ops/scripts/legacy_users_12.sample.json`
 - content payload batch (edit): `docs/ops/scripts/migration_items.sample.json`
 - user upsert runner: `docs/ops/scripts/bulk_legacy_users_upsert.sh`
 - content upsert runner: `docs/ops/scripts/migration_import_batch.sh`
+- manifest runner (recommended): `docs/ops/scripts/migration_wave1_manifest_runner.sh`
 
 ## 4. Preflight (must pass)
 
@@ -103,16 +106,39 @@ Do not recompute hash with different whitespace/field ordering between preview a
 - Re-running upsert with same `source_system + source_content_id` updates record, does not duplicate.
 - Re-running user upsert with same source key updates link, does not duplicate.
 
-## 8. Output Artifacts
+## 8. One-Command Manifest Run (recommended for PR-07+)
+
+Dry run:
+
+```bash
+API_BASE=http://127.0.0.1:8787 \
+IAI_ADMIN_SECRET=local-admin-secret \
+MODE=dry-run \
+PROOF_OUT=/tmp/migration_wave1_dry_run_proof.json \
+bash docs/ops/scripts/migration_wave1_manifest_runner.sh docs/ops/MIGRATION_WAVE1_MANIFEST_SAMPLE.json
+```
+
+Live run:
+
+```bash
+API_BASE=https://api.iai.one \
+IAI_ADMIN_SECRET="<SECRET>" \
+MODE=run \
+PROOF_OUT=/tmp/migration_wave1_live_run_proof.json \
+bash docs/ops/scripts/migration_wave1_manifest_runner.sh docs/ops/MIGRATION_WAVE1_MANIFEST_SAMPLE.json
+```
+
+## 9. Output Artifacts
 
 Script output files:
 
 - `/tmp/migration_users_batch_result.json`
 - `/tmp/migration_batch_result.json`
+- `/tmp/migration_wave1_dry_run_proof.json` (or `PROOF_OUT` custom path)
 
 Team must archive both in release evidence folder.
 
-## 9. Go/No-Go for team handoff
+## 10. Go/No-Go for team handoff
 
 Go only if:
 

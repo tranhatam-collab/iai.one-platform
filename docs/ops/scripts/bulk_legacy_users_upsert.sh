@@ -21,7 +21,7 @@ curl -sS "${API_BASE}/v1/migration/health" -H "Authorization: Bearer ${ADMIN_SEC
 echo
 
 if [ "$MODE" = "dry-run" ]; then
-  echo "==> Dry run mode: no POST requests will be sent"
+  echo "==> Dry run mode: POST requests will be sent with dry_run=true"
 fi
 
 python3 - "$payload_file" <<'PY'
@@ -47,26 +47,33 @@ for i, item in enumerate(items, start=1):
         'mode': mode,
     }
 
+    request_item = dict(item)
     if mode == 'dry-run':
-        rec['status'] = 'skipped_dry_run'
-        results.append(rec)
-        continue
+        request_item['dry_run'] = True
 
     p = subprocess.run([
         'curl', '-sS', '-X', 'POST', f'{api}/v1/migration/legacy-users/upsert',
         '-H', 'Content-Type: application/json',
         '-H', f'Authorization: Bearer {secret}',
-        '--data', json.dumps(item, ensure_ascii=False),
+        '--data', json.dumps(request_item, ensure_ascii=False),
     ], capture_output=True, text=True)
+
+    rec['http_exit_code'] = p.returncode
+    if p.stderr.strip():
+        rec['stderr'] = p.stderr.strip()
 
     body = p.stdout.strip()
     rec['raw'] = body
     try:
         parsed = json.loads(body)
         rec['ok'] = parsed.get('ok')
+        rec['dry_run'] = parsed.get('dry_run', bool(request_item.get('dry_run')))
+        rec['action'] = parsed.get('action')
+        rec['error'] = parsed.get('error')
         rec['item'] = parsed.get('item')
     except Exception:
         rec['ok'] = False
+        rec['error'] = 'Invalid JSON response'
 
     results.append(rec)
 
@@ -74,7 +81,7 @@ summary = {
     'total': len(results),
     'success': sum(1 for r in results if r.get('ok') is True),
     'failed': sum(1 for r in results if r.get('ok') is False),
-    'skipped': sum(1 for r in results if r.get('status') == 'skipped_dry_run'),
+    'dry_run_requests': sum(1 for r in results if r.get('dry_run') is True),
     'results': results,
 }
 
@@ -82,7 +89,7 @@ out = '/tmp/migration_users_batch_result.json'
 with open(out, 'w', encoding='utf-8') as f:
     json.dump(summary, f, ensure_ascii=False, indent=2)
 
-print(json.dumps({'saved': out, 'summary': {k: summary[k] for k in ['total', 'success', 'failed', 'skipped']}}, ensure_ascii=False))
+print(json.dumps({'saved': out, 'summary': {k: summary[k] for k in ['total', 'success', 'failed', 'dry_run_requests']}}, ensure_ascii=False))
 PY
 
 echo
