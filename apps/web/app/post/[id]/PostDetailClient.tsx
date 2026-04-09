@@ -41,6 +41,10 @@ export function PostDetailClient({ postId }: Props) {
         <span className="text-white/50">Bài viết</span>
       </div>
 
+      <div className="mb-6 rounded-xl border border-obsidian-border bg-obsidian-mid/60 px-4 py-3 text-xs text-white/45 font-mono">
+        post detail on app.iai.one {`->`} verify evidence before external redistribution.
+      </div>
+
       {loading ? (
         <div className="card p-5 space-y-4">
           <div className="flex items-center gap-3">

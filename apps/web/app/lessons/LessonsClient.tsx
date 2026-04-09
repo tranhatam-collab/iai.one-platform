@@ -95,6 +95,9 @@ export function LessonsClient() {
 
       {/* ── Header ─── */}
       <div className="mb-8">
+        <div className="mb-4 rounded-xl border border-obsidian-border bg-obsidian-mid/70 px-4 py-3 text-xs text-white/45 font-mono">
+          lessons on app.iai.one {`->`} study and practice · verify on /verify before large-scale sharing.
+        </div>
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <div className="flex items-center gap-2 mb-2">

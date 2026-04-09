@@ -8,6 +8,22 @@ export function Footer() {
   return (
     <footer className="border-t border-obsidian-border bg-obsidian-mid mt-16">
       <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="mb-8 rounded-2xl border border-gold/20 bg-gold/10 px-5 py-4">
+          <p className="text-xs font-mono uppercase tracking-wider text-gold">Legacy Community Notice</p>
+          <p className="mt-2 text-sm text-white/65 leading-relaxed">
+            Cộng đồng cũ đang được hội tụ vào <strong className="text-white">app.iai.one</strong>. Nếu bạn đến từ hệ cũ,
+            hãy dùng profile hiện tại và tiếp tục tại feed, lessons, verify và studio trong hệ sinh thái mới.
+          </p>
+          <a
+            href="https://home.iai.one"
+            className="mt-3 inline-flex items-center gap-2 text-xs font-mono text-cyan-iai hover:text-gold transition-colors"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Xem ecosystem map tại home.iai.one ↗
+          </a>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
 
           {/* Brand */}
@@ -38,6 +54,7 @@ export function Footer() {
               {[
                 { href: '/', label: 'Feed cộng đồng' },
                 { href: '/lessons', label: 'Kho bài học' },
+                { href: '/marketplace', label: 'Marketplace tri thức' },
                 { href: '/verify', label: 'Kiểm chứng AI' },
                 { href: '/studio', label: 'IAI Studio' },
               ].map(l => (
@@ -93,13 +110,32 @@ export function Footer() {
           </div>
         </div>
 
+        <div className="mb-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            { label: 'iai.one', desc: 'Charter · Constitutional root', href: 'https://iai.one' },
+            { label: 'home.iai.one', desc: 'Portal · Entry router', href: 'https://home.iai.one' },
+            { label: 'flow.iai.one', desc: 'Workflow product surface', href: 'https://flow.iai.one' },
+          ].map(item => (
+            <a
+              key={item.label}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl border border-obsidian-border bg-obsidian/60 px-4 py-3 transition hover:border-gold/30"
+            >
+              <p className="text-sm font-mono text-gold">{item.label}</p>
+              <p className="mt-1 text-xs text-white/40">{item.desc}</p>
+            </a>
+          ))}
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-obsidian-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/25 font-mono">
             © 2025 IAI — Hiệp Hội Trí Tuệ Sáng Tạo Toàn Cầu · iai.one
           </p>
           <div className="flex items-center gap-4">
-            <span className="text-xs text-white/20 font-mono">v1.0.0 · Phase 1</span>
+            <span className="text-xs text-white/20 font-mono">v3.0.0 · Phase 2 live · NFT trust layer active</span>
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-jade animate-pulse" />
               <span className="text-xs text-white/30 font-mono">API Online</span>

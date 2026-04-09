@@ -1,0 +1,20 @@
+{
+  "lang": "en",
+  "collection": "iai-digital-products",
+  "title": "Market Intelligence Pack Q2 2026 (Digital Product)",
+  "recipientName": "Phuong Dong Commerce Unit",
+  "walletAddress": "0x8F2a5c1f7E0A9bC1D2E3F4a5B6c7D8e9F0A1B2C3",
+  "contentHash": "sha256:9a8e53f5fd4497fd2fd196177a61d8b4f8ddf1d9b3f4a707a08dbf2fd48f3e7a",
+  "proofUrl": "https://phuongdong.us/proofs/products/market-intelligence-pack-q2-2026.json",
+  "externalUrl": "https://phuongdong.us/membership?product=market-intelligence-pack-q2-2026",
+  "externalId": "PDUS-PRODUCT-2026-Q2-0007",
+  "pricing": {
+    "currency": "USD",
+    "amount": 49,
+    "type": "one_time"
+  },
+  "license": {
+    "type": "single-buyer",
+    "commercialUse": false
+  }
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdonginsider",
+    "source_user_id": "PDI-AUTHOR-0001",
+    "source_handle": "pdi_editor_1",
+    "source_email": "editor1@phuongdonginsider.com",
+    "source_url": "https://phuongdonginsider.com/vi/authors/editor1",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdonginsider",
+    "source_user_id": "PDI-AUTHOR-0002",
+    "source_handle": "pdi_editor_2",
+    "source_email": "editor2@phuongdonginsider.com",
+    "source_url": "https://phuongdonginsider.com/vi/authors/editor2",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdonginsider",
+    "source_user_id": "PDI-AUTHOR-0003",
+    "source_handle": "pdi_editor_3",
+    "source_email": "editor3@phuongdonginsider.com",
+    "source_url": "https://phuongdonginsider.com/vi/authors/editor3",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-PROGRAM-OWNER-0001",
+    "source_handle": "pdus_program_1",
+    "source_email": "program1@phuongdong.us",
+    "source_url": "https://phuongdong.us/programs/1",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-PROGRAM-OWNER-0002",
+    "source_handle": "pdus_program_2",
+    "source_email": "program2@phuongdong.us",
+    "source_url": "https://phuongdong.us/programs/2",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-PROGRAM-OWNER-0003",
+    "source_handle": "pdus_program_3",
+    "source_email": "program3@phuongdong.us",
+    "source_url": "https://phuongdong.us/programs/3",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-PROGRAM-OWNER-0004",
+    "source_handle": "pdus_program_4",
+    "source_email": "program4@phuongdong.us",
+    "source_url": "https://phuongdong.us/programs/4",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-OPP-OWNER-0001",
+    "source_handle": "pdus_opp_1",
+    "source_email": "opp1@phuongdong.us",
+    "source_url": "https://phuongdong.us/opportunities/1",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-OPP-OWNER-0002",
+    "source_handle": "pdus_opp_2",
+    "source_email": "opp2@phuongdong.us",
+    "source_url": "https://phuongdong.us/opportunities/2",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-OPP-OWNER-0003",
+    "source_handle": "pdus_opp_3",
+    "source_email": "opp3@phuongdong.us",
+    "source_url": "https://phuongdong.us/opportunities/3",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-OPP-OWNER-0004",
+    "source_handle": "pdus_opp_4",
+    "source_email": "opp4@phuongdong.us",
+    "source_url": "https://phuongdong.us/opportunities/4",
+    "import_status": "linked"
+  },
+  {
+    "user_id": "usr_ai_civicmind",
+    "source_system": "phuongdong_us",
+    "source_user_id": "PDUS-OPP-OWNER-0005",
+    "source_handle": "pdus_opp_5",
+    "source_email": "opp5@phuongdong.us",
+    "source_url": "https://phuongdong.us/opportunities/5",
+    "import_status": "linked"
+  }
+]

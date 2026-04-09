@@ -39,6 +39,9 @@ export function BadgesExplorer() {
       <div className="relative overflow-hidden border-b border-obsidian-border">
         <div className="absolute inset-0 bg-glow-gold opacity-30 pointer-events-none" />
         <div className="max-w-5xl mx-auto px-4 py-16 text-center">
+          <div className="mb-6 rounded-xl border border-obsidian-border bg-obsidian-mid/70 px-4 py-3 text-xs text-white/45 font-mono">
+            badges on app.iai.one {`->`} visible reputation and trust pathway for community members.
+          </div>
           <div className="flex items-center justify-center gap-3 mb-4">
             {/* Showcase 5 animated badges */}
             {(['GENESIS', 'ETERNAL_LIGHT', 'TRUTH_ENGINE', 'LEGEND', 'FLAME_OF_AGES'] as const).map((id, i) => (

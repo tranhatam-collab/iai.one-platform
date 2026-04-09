@@ -17,6 +17,9 @@ import { handleCopyright }   from './routes/copyright'
 import { handlePayment }     from './routes/payment'
 import { handleMedia }       from './routes/media'
 import { handleIpfs }        from './routes/ipfs'
+import { handleSupport }     from './routes/support'
+import { handleSocialAuth }  from './routes/auth-social'
+import { handleMigration }   from './routes/migration'
 import type { Bindings } from './types'
 
 export default {
@@ -31,31 +34,52 @@ export default {
     if (preflight) return preflight
 
     // ── Health check ──────────────────────────────────────
-    if (path === '/' || path === '/health') {
+    const isHealthPath =
+      path === '/' ||
+      path === '/health' ||
+      path === '/api' ||
+      path === '/api/health'
+
+    if (isHealthPath) {
       return json({
         name:    'IAI API — Intelligence · Artistry · International',
-        version: '1.0.0',
+        version: '3.0.0',
         status:  'ok',
         env:     env.IAI_ENV ?? 'unknown',
         ts:      new Date().toISOString(),
         routes: [
           'POST /v1/users/register',
           'POST /v1/users/login',
+          'POST /v1/support/contact',
           'GET  /v1/users/me',
+          'GET  /v1/users',
           'GET  /v1/posts',
           'POST /v1/posts',
           'POST /v1/verify/post',
           'POST /v1/verify/claim',
           'GET  /v1/lessons',
+          'GET  /v1/courses',
           'POST /v1/lessons/generate',
           'POST /v1/media/upload',
           'POST /v1/ipfs/pin',
+          'GET  /v1/migration/health',
+          'GET  /v1/migration/contracts',
+          'GET  /v1/migration/legacy-users',
+          'POST /v1/migration/legacy-users',
+          'POST /v1/migration/legacy-users/upsert',
+          'POST /v1/migration/legacy-content',
+          'GET  /v1/migration/legacy-content',
+          'POST /v1/migration/legacy-content/upsert',
+          'POST /v1/migration/legacy-content/mark-imported',
+          'POST /v1/migration/legacy-content/mark-imported-by-source',
+          'GET  /v1/migration/audit-events',
         ],
       }, 200, origin, env.ALLOWED_ORIGINS)
     }
 
     // ── Route dispatcher ──────────────────────────────────
     try {
+      if (path.startsWith('/v1/auth'))        return handleSocialAuth(request, env, path)
       if (path.startsWith('/v1/admin'))       return handleAdmin(request, env, path)
       if (path.startsWith('/v1/verify'))      return handleVerify(request, env, path)
       if (path.startsWith('/v1/users'))       return handleUsers(request, env, path)
@@ -68,6 +92,8 @@ export default {
       if (path.startsWith('/v1/payment'))     return handlePayment(request, env, path)
       if (path.startsWith('/v1/media'))       return handleMedia(request, env, path)
       if (path.startsWith('/v1/ipfs'))        return handleIpfs(request, env, path)
+      if (path.startsWith('/v1/support'))     return handleSupport(request, env, path)
+      if (path.startsWith('/v1/migration'))   return handleMigration(request, env, path)
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Internal server error'
       console.error('[IAI API]', method, path, msg)

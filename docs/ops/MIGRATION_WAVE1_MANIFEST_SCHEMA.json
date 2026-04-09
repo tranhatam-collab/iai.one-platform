@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://iai.one/schemas/migration-wave1-manifest.json",
+  "title": "IAI Migration Wave 1 Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "wave_id",
+    "created_at",
+    "source_systems",
+    "users",
+    "content_items",
+    "redirect_map",
+    "rules"
+  ],
+  "properties": {
+    "manifest_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "wave_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_systems": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "phuongdonginsider",
+          "phuongdong_us",
+          "other"
+        ]
+      }
+    },
+    "users": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/legacyUserLink"
+      }
+    },
+    "content_items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/legacyContentItem"
+      }
+    },
+    "redirect_map": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/redirectItem"
+      }
+    },
+    "rules": {
+      "$ref": "#/$defs/rulePack"
+    }
+  },
+  "$defs": {
+    "legacyUserLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "user_id",
+        "source_system",
+        "source_handle",
+        "import_status"
+      ],
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_system": {
+          "type": "string",
+          "enum": [
+            "phuongdonginsider",
+            "phuongdong_us",
+            "other"
+          ]
+        },
+        "source_user_id": {
+          "type": "string"
+        },
+        "source_handle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_email": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "import_status": {
+          "type": "string",
+          "enum": [
+            "linked",
+            "pending_review",
+            "blocked"
+          ]
+        }
+      }
+    },
+    "legacyContentItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_system",
+        "source_content_id",
+        "content_type",
+        "title",
+        "content_hash",
+        "import_status",
+        "moderation_status"
+      ],
+      "properties": {
+        "source_system": {
+          "type": "string",
+          "enum": [
+            "phuongdonginsider",
+            "phuongdong_us",
+            "other"
+          ]
+        },
+        "source_content_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "source_author_ref": {
+          "type": "string"
+        },
+        "content_type": {
+          "type": "string",
+          "enum": [
+            "post",
+            "lesson",
+            "document",
+            "asset"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "proof_url": {
+          "type": "string"
+        },
+        "wallet_address": {
+          "type": "string"
+        },
+        "collection": {
+          "type": "string"
+        },
+        "import_status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "imported",
+            "rejected",
+            "needs_review"
+          ]
+        },
+        "moderation_status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "flagged"
+          ]
+        }
+      }
+    },
+    "redirectItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_url",
+        "target_url",
+        "status_code"
+      ],
+      "properties": {
+        "source_url": {
+          "type": "string"
+        },
+        "target_url": {
+          "type": "string"
+        },
+        "status_code": {
+          "type": "integer",
+          "enum": [
+            301,
+            302,
+            308
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "rulePack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity_collision",
+        "trust_markers",
+        "moderation"
+      ],
+      "properties": {
+        "identity_collision": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_key_priority",
+            "handle_suffix_strategy",
+            "manual_review_required"
+          ],
+          "properties": {
+            "source_key_priority": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            "handle_suffix_strategy": {
+              "type": "string"
+            },
+            "manual_review_required": {
+              "type": "boolean"
+            }
+          }
+        },
+        "trust_markers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "required_source_fields",
+            "proof_required_for_content_types"
+          ],
+          "properties": {
+            "required_source_fields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "proof_required_for_content_types": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "post",
+                  "lesson",
+                  "document",
+                  "asset"
+                ]
+              }
+            }
+          }
+        },
+        "moderation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "default_import_status",
+            "default_moderation_status",
+            "manual_review_tags"
+          ],
+          "properties": {
+            "default_import_status": {
+              "type": "string"
+            },
+            "default_moderation_status": {
+              "type": "string"
+            },
+            "manual_review_tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
