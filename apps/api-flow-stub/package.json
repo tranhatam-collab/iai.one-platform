@@ -1,0 +1,14 @@
+{
+  "name": "@iai/api-flow-stub",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0",
+    "@cloudflare/workers-types": "^4.20250317.0",
+    "typescript": "^5.8.2"
+  }
+}

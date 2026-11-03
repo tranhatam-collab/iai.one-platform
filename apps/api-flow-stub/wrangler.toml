@@ -1,0 +1,10 @@
+name = "api-flow-iai-one"
+main = "src/worker.ts"
+compatibility_date = "2026-03-30"
+
+[observability]
+enabled = true
+
+[[routes]]
+pattern = "api.flow.iai.one/*"
+zone_name = "iai.one"
